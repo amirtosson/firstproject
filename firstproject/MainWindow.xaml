@@ -1,0 +1,113 @@
+﻿<Window x:Class="firstproject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:local="clr-namespace:firstproject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="584" Width="525" MouseMove="Window_MouseMove">
+    <!--	 ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" MouseMove="Window_MouseMove" >  -->
+
+    <Window.Resources>
+        <sys:String x:Key="HiAgain">Second Block</sys:String>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Foreground" Value="#EE000000" />
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="Gray" BorderThickness="3" Padding="2" BorderBrush="Black">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="style_1" TargetType="TextBlock">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="BackBrush"
+                    StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#18000000" Offset="0.1" />
+                    <GradientStop Color="#88000000" Offset="0.9" />
+                </LinearGradientBrush>
+            </Style.Resources>
+            <Setter Property="Background" Value="{StaticResource BackBrush}"/>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <ContentControl>
+            <local:BG x:Name="_bg_">
+                <local:BG.Template>
+                    <ControlTemplate TargetType="{x:Type local:BG}">
+                        <Grid>
+                            <Rectangle Fill="White" Opacity="0.2"/>
+                            <Image Source="{Binding BG_T, RelativeSource={RelativeSource TemplatedParent}}" Opacity="{ Binding ElementName=BGSlider, Path=Value }"/>
+                        </Grid>
+                    </ControlTemplate>
+                </local:BG.Template>
+            </local:BG>
+        </ContentControl>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,307">
+            <Button x:Name="button_2"  Height="60" Width="300" Click="button_2_Click" Style="{DynamicResource RoundedButtonStyle}">
+                <DockPanel>
+                    <Image  Source='Resources\all.ico' Width="40" Height="40" DockPanel.Dock="Left" />
+                    <TextBlock DockPanel.Dock="Top" Margin="2,-3,1,1" HorizontalAlignment="Center" FontSize="40">
+                        Patientenliste
+                    </TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="button" Content="Change BG" Height="60" Width="300" Click="button_Click"  />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" MouseMove="bdr_MouseMove" MouseLeave="StackPanel_MouseLeave" MouseEnter="StackPanel_MouseEnter" Margin="10,0,10,236" Height="66" >
+            <StackPanel.Resources>
+                <DataTemplate DataType="{x:Type local:River}">
+                    <Border x:Name="bdr" BorderBrush="Blue" BorderThickness="3" CornerRadius="12"  >
+                        <Grid Margin="4">
+                            <TextBlock x:Name="txt">
+                            <Run Text="You are"/>
+                            <TextBlock Text="{Binding Title_P}" Style="{StaticResource style_1}"/>
+                            <LineBreak/>
+                            <Run Text=" You have spent here " />
+                            <TextBlock Text="{Binding MilesLong}" />
+                            <Run Text=" seconds." />
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="bdr" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bdr" Property="Background" Value="LightGray"/>
+                            <Setter TargetName="txt" Property="Foreground" Value="Red"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+
+            </StackPanel.Resources>
+
+            <ContentControl>
+                <local:River x:Name="theRiver"/>
+            </ContentControl>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom">
+            <TextBlock Text="Change Transperancy!" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" Margin="0,2,210,4" Background="White"/>
+            <Slider x:Name="BGSlider" VerticalAlignment="Bottom" Minimum="0" Maximum="1.0" Value="0" TickFrequency="0.01" Width="220" Margin="138,0,139,0" />
+            <TextBlock Text="{Binding ElementName=BGSlider, Path=Value}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            
+
+        </StackPanel>
+    </Grid>
+
+</Window>
