@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="Add a new user " Height="180" Width="400">
+        Title="Add a new user " Height="180" Width="420">
     <Window.Resources>
         <Style x:Key="style_1" TargetType="TextBlock">
             <Style.Resources>
@@ -28,19 +28,34 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="300"  />
+        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
         <TextBlock Grid.Row="1"  Text="Email: "  HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="2"  Text="user@user.com"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="300"  />
+        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="2"  Text="user@user.com"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="Auto"  />
         <TextBlock Grid.Row="2" Text="Age: " HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="userAgeAdd" BorderBrush="Black" BorderThickness="2" Text="123456789"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="300"  />
-        <Button  Grid.Row="3" Name="add_ok" Grid.Column="1" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
-        <Button  Grid.Row="3" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
+        <TextBox Grid.Row="2" Grid.Column="1" Name="userAgeAdd" BorderBrush="Black" BorderThickness="2" Text="123456789"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="Auto"  />
+        <TextBlock Grid.Row="0" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Row="0" Grid.Column="3" Name="userNameAdds"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <TextBlock Grid.Row="1" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Row="1" Grid.Column="3" Name="userNameAddsss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <TextBlock Grid.Row="3" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Row="3" Grid.Column="3" Name="userNameAddsssssssss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <TextBlock Grid.Row="3" Grid.Column="0"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Row="3" Grid.Column="1" Name="userNsafameAddsssssssss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <TextBlock Grid.Row="2" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Grid.Row="2" Grid.Column="3" Name="uasa"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+
+        <Button  Grid.Row="4" Name="add_ok" Grid.Column="4" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
+        <Button  Grid.Row="4" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
 
     </Grid>
 
