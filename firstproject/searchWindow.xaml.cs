@@ -38,15 +38,32 @@ namespace firstproject
         }
         public void makeList(ref ObservableCollection<User> items)
         {
-            string help;
+            string help, help1, help3, help4, help5, help6;
+            int help2 ;
+            string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
+            string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
+            string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
+
+
             for (int i = 0; i < 20; ++i)
             {
                 help = RandomString(randNum.Next(4, 9));
+                help1 = help + "_" + randNum.Next(1, 600).ToString();
+                help2 = randNum.Next(10, 60);
+                help3 = help.ToLower() + i.ToString() + "@bedan.com";
+                help4 = mat[randNum.Next(0, 5)];
+                help5 = fac[randNum.Next(0, 3)];
+                help6 = org[randNum.Next(0, 3)];
                 items.Add(new User()
                 {
-                    Name = help + "_" + randNum.Next(1, 600).ToString(),
-                    Age = randNum.Next(10, 60),
-                    Email = help.ToLower() + i.ToString() + "@bedan.com"
+                    Scientist = help,
+                    ExpID = help1,
+                    Date = help2,
+                    Email = help3,
+                    Material = help4,
+                    RadFacility = help5,
+                    Organization = help6,
+                    fullName= help+ help1+ help2.ToString()+ help3+ help4+ help5+ help6
                 });
             }
         }
@@ -94,8 +111,8 @@ namespace firstproject
         {
             if (String.IsNullOrEmpty(searchFilter.Text))
                 return true;
-            else
-                return ((item as User).Name.IndexOf(searchFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            else 
+                return ((item as User).fullName.IndexOf(searchFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void searchFilter_TextChanged(object sender, TextChangedEventArgs e)
@@ -113,7 +130,7 @@ namespace firstproject
             _inputWindow.ShowDialog();
             if (_inputWindow.all_ok)
             {
-                mainitems.Add(new User { Name =_inputWindow.new_name, Age = _inputWindow.new_age, Email = _inputWindow.new_email});
+                mainitems.Add(new User { ExpID =_inputWindow.new_name, Date = _inputWindow.new_age, Email = _inputWindow.new_email});
             }
             _inputWindow.Close();
             System.Windows.Forms.MessageBox.Show(_inputWindow.new_name+" has been added to your list", "Confirmation of adding a new user ");
@@ -123,9 +140,15 @@ namespace firstproject
     }
     public class User
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        public string ExpID { get; set; }
+        public int Date { get; set; }
         public string Email { get; set; }
+        public string RadFacility { get; set; }
+        public string Organization { get; set; }
+        public string Material { get; set; }
+        public string Scientist { get; set; }
+        public string fullName { get; set; }
+
         public string item;
     }
     public class SortAdorner : Adorner
