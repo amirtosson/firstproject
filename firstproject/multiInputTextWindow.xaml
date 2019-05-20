@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="Add a new user " Height="280" Width="420">
+        Title="Add data file to the cloud " Height="280" Width="420" Icon='C:\Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\Resources\plus.png'>
     <Window.Resources>
         <Style x:Key="style_1" TargetType="TextBlock">
             <Style.Resources>
@@ -41,8 +41,11 @@
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <DockPanel Grid.Row="0">
+            <Image DockPanel.Dock="Left" Source="Resources\user.jpg" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock   Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0"/>
+        </DockPanel>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
         <TextBlock Grid.Row="1"  Text="Email: "  HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="2"  Text="user@user.com"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="Auto"  />
         <TextBlock Grid.Row="2" Text="Age: " HorizontalAlignment="Center" VerticalAlignment="Center"/>

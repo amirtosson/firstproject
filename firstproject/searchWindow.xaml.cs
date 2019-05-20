@@ -73,15 +73,15 @@ namespace firstproject
                     fullName= dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6
                 });
 
-                StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
-                using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
-                {
-                    writer2.Write(help1);
-                    writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
-                    writer2.WriteLine("The date: " + help2.ToString());
-                    writer2.WriteLine("The organization: " + help6);
-                    writer2.WriteLine("The used material: " + help4);
-                }
+                //StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
+                //using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
+                //{
+                //    writer2.Write(help1);
+                //    writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
+                //    writer2.WriteLine("The date: " + help2.ToString());
+                //    writer2.WriteLine("The organization: " + help6);
+                //    writer2.WriteLine("The used material: " + help4);
+                //}
 
             }
         }
