@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="Add a new user " Height="180" Width="420">
+        Title="Add a new user " Height="280" Width="420">
     <Window.Resources>
         <Style x:Key="style_1" TargetType="TextBlock">
             <Style.Resources>
@@ -28,7 +28,11 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
+            
+
+
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -53,9 +57,10 @@
         <TextBox Grid.Row="3" Grid.Column="1" Name="userNsafameAddsssssssss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
         <TextBlock Grid.Row="2" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBox Grid.Row="2" Grid.Column="3" Name="uasa"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-
-        <Button  Grid.Row="4" Name="add_ok" Grid.Column="4" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
-        <Button  Grid.Row="4" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
+        <TextBlock Grid.Row="4" Text="Note:" VerticalAlignment="Top" Margin="16,10"/>
+        <TextBox  Grid.Row="4" Grid.ColumnSpan="4" Width="350"  Height="60"  Margin="20,20,10,5" />
+        <Button  Grid.Row="5" Name="add_ok" Grid.Column="4" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
+        <Button  Grid.Row="5" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
 
     </Grid>
 
