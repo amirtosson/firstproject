@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="584" Width="525" MouseMove="Window_MouseMove">
+        Title="MainWindow" Height="584" Width="525" MouseMove="Window_MouseMove" Icon='C:\Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\Resources\p2.jpeg' >
     <!--	 ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" MouseMove="Window_MouseMove" >  -->
 
     <Window.Resources>

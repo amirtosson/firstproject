@@ -42,7 +42,7 @@ namespace firstproject
             new_name = userNameAdd.Text;
             new_email = userEmailAdd.Text;
             if(AgeTextCheck(userAgeAdd.Text))  new_age = int.Parse(userAgeAdd.Text);
-            else MessageBox.Show("Invalid enteries.!!", "Error");
+            else MessageBox.Show("Invalid enteries.!!", "Error",MessageBoxButton.OK, MessageBoxImage.Warning);
             if ((new_age < 100) && (new_age > 0))
             {
                 all_ok = true;
@@ -50,7 +50,7 @@ namespace firstproject
             }
             else
             {
-                MessageBox.Show("Invalid Age ! .!!", "Error");
+                MessageBox.Show("Invalid Age ! .!!", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
         }
