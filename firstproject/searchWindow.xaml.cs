@@ -169,12 +169,13 @@ namespace firstproject
 
             multiInputTextWindow _inputWindow = new multiInputTextWindow();
             _inputWindow.ShowDialog();
-            string ID = _inputWindow.new_name.ToUpper() + _inputWindow.new_mat+ _inputWindow.new_time;
-            string fullnamehrlp = _inputWindow.new_date +
-                    "_" + _inputWindow.new_time + "_" + _inputWindow.new_name + "_" +
-                    _inputWindow.new_mat + "_" + _inputWindow.new_fac + "_" + _inputWindow.new_org + "_Read_Me.txt";
+
             if (_inputWindow.all_ok)
             {
+                string ID = _inputWindow.new_name.ToUpper() + _inputWindow.new_mat + _inputWindow.new_time;
+                string fullnamehrlp = _inputWindow.new_date +
+                        "_" + _inputWindow.new_time + "_" + _inputWindow.new_name + "_" +
+                        _inputWindow.new_mat + "_" + _inputWindow.new_fac + "_" + _inputWindow.new_org + "_Read_Me.txt";
                 mainitems.Add(new User { ExpID =ID, Date = _inputWindow.new_date,
                     Email = _inputWindow.new_email, Material= _inputWindow.new_mat,
                     RadFacility = _inputWindow.new_fac, Organization= _inputWindow.new_org,

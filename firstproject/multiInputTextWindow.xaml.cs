@@ -20,20 +20,22 @@ namespace firstproject
     public partial class multiInputTextWindow : Window
     {
         public bool all_ok = false;
-        public string new_name;
-        public string new_email;
-        public string new_age;
-        public string new_date ;
-        public string new_time ;
-        public string new_mat ;
-        public string new_fac;
-        public string new_org;
+        public string new_name= " ";
+        public string new_email = " ";
+        public string new_age = " ";
+        public string new_date = " ";
+        public string new_time = " ";
+        public string new_mat = " ";
+        public string new_fac = " ";
+        public string new_org = " ";
         public multiInputTextWindow( )
         {
             InitializeComponent();
         }
-        public bool AgeTextCheck(string str)
+        public bool inputCheck(string str)
         {
+            if(new_time != " ")
+
             foreach (char c in str)
             {
                 if (c < '0' || c > '9')
@@ -52,7 +54,7 @@ namespace firstproject
             new_mat = userMatAdd.Text;
             new_time = userTimeAdd.Text;
             all_ok = true;
-                this.Close();
+            this.Close();
             
         }
 

@@ -21,6 +21,35 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="Black" />
         </Style>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="LightGray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid HorizontalAlignment="Center" Width="420">
         <Grid.RowDefinitions>
@@ -45,39 +74,39 @@
             <Image DockPanel.Dock="Left" Source="Resources\user.jpg" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock   Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,0"/>
         </DockPanel>
-        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="1" Text="Scientist"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="1" Tag="Scientist" Style="{StaticResource placeHolder }"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="1">
             <Image DockPanel.Dock="Left" Source="Resources\em.png" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock Text="Email "  HorizontalAlignment="Left" VerticalAlignment="Center" />
         </DockPanel>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="1"  Text="user@user.com"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="1"  Tag ="user@user.com" Style="{StaticResource placeHolder }" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="2">
             <Image DockPanel.Dock="Left" Source="Resources\org.png" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock Grid.Row="2" Text="Org " HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </DockPanel>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="userOrgAdd" BorderBrush="Black" BorderThickness="1" Text="My organization"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="2" Grid.Column="1" Name="userOrgAdd" BorderBrush="Black" BorderThickness="1"  Tag ="My organization" Style="{StaticResource placeHolder }" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="0" Grid.Column="2">
             <Image DockPanel.Dock="Left" Source="Resources\mat.png" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock Grid.Row="0" Grid.Column="2"  Text="Material" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </DockPanel>
-        <TextBox Grid.Row="0" Grid.Column="3" Name="userMatAdd"  BorderBrush="Black" BorderThickness="1" Text="My material"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="0" Grid.Column="3" Name="userMatAdd"  BorderBrush="Black" BorderThickness="1" Tag="My material" Style="{StaticResource placeHolder }"  HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="1" Grid.Column="2">
             <Image DockPanel.Dock="Left" Source="Resources\da.png" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock  Text="Date" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </DockPanel>
-        <TextBox Grid.Row="1" Grid.Column="3" Name="userDateAdd"  BorderBrush="Black" BorderThickness="1" Text="yyyy_mm_dd"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="1" Grid.Column="3" Name="userDateAdd"  BorderBrush="Black" BorderThickness="1" Tag="yyyy_mm_dd"  Style="{StaticResource placeHolder }" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="3" Grid.Column="0">
             <Image DockPanel.Dock="Left" Source="Resources\rad.jpg" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock  Text="Facility" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </DockPanel>
-        <TextBox Grid.Row="3" Grid.Column="1" Name="userFacAdd"  BorderBrush="Black" BorderThickness="1" Text="Beam line"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="3" Grid.Column="1" Name="userFacAdd"  BorderBrush="Black" BorderThickness="1" Tag ="Beam line" Style="{StaticResource placeHolder }"  HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <DockPanel Grid.Row="2" Grid.Column="2">
             <Image DockPanel.Dock="Left" Source="Resources\tim.png" Margin="2,2,2,2" Width="20" Height="20"/>
             <TextBlock  Text="Time" HorizontalAlignment="Left" VerticalAlignment="Center" />
         </DockPanel>
-        <TextBox Grid.Row="2" Grid.Column="3" Name="userTimeAdd"  BorderBrush="Black" BorderThickness="1" Text="hh_mm"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <TextBox Grid.Row="2" Grid.Column="3" Name="userTimeAdd"  BorderBrush="Black" BorderThickness="1" Tag ="hh_mm" Style="{StaticResource placeHolder }"  HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <TextBlock Grid.Row="4" Text="Note:" VerticalAlignment="Top" Margin="16,10"/>
-        <TextBox  Grid.Row="4" Grid.ColumnSpan="4" Name="userNoteAdd" Width="400"  Height="60"  Margin="10,20,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Extra notes about the experimental setup, the conditions, etc" />
+        <TextBox  Grid.Row="4" Grid.ColumnSpan="4" Name="userNoteAdd" Width="400"  Height="60"  Margin="10,20,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Tag ="Extra notes about the experimental setup, the conditions, etc" Style="{StaticResource placeHolder }" />
         <Button  Grid.Row="5" Name="add_ok" Grid.Column="4" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
         <Button  Grid.Row="5" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
         <Button  Grid.Row="3" Name="now" Grid.Column="4" Content="Now" Margin="5" Width="40" HorizontalAlignment="Right"  Click="now_Click"  />
