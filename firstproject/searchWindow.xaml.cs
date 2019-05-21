@@ -17,6 +17,7 @@ using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace firstproject
 {
@@ -45,45 +46,69 @@ namespace firstproject
             string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
             string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
             string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
-
-
-            for (int i = 0; i < 20; ++i)
+            DirectoryInfo di = new DirectoryInfo(@"C: \Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\bin\Debug\");
+            FileInfo[] files = di.GetFiles("*.txt");
+            Console.WriteLine(files.Length);
+            String pattern = @"_"; 
+            for (int numOfFiles = 0; numOfFiles < files.Length; ++numOfFiles)
             {
-                help = RandomString(randNum.Next(4, 9));
-                help1 = help + "_" + randNum.Next(1, 600).ToString();
-                help2 = randNum.Next(10, 60);
-                help3 = help.ToLower() + i.ToString() + "@bedan.com";
-                help4 = mat[randNum.Next(0, 5)];
-                help5 = fac[randNum.Next(0, 3)];
-                help6 = org[randNum.Next(0, 3)];
+                string[] names = Regex.Split(files[numOfFiles].ToString(), pattern);
+                Console.WriteLine(names[10]);
+                items.Add(new User()
+                {
+                    Scientist = names[5],
+                    ExpID = names[5]+ names[7],
+                    Date = 11,
+                    Email = names[5]+ names[5]+"@hotmail.com",
+                    Material = names[8],
+                    RadFacility = names[9],
+                    Organization = names[10],
+                    fullName = files[numOfFiles].ToString()
+                });
 
-                dateString=  DateTime.Today.Day.ToString()+"_"+DateTime.Today.Month.ToString()+"_"+DateTime.Today.Year.ToString()+"_"+ DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
+
+
+            }
+            
+            
+             
+            //for (int i = 0; i < 20; ++i)
+            //{
+            //    help = RandomString(randNum.Next(4, 9));
+            //    help1 = help + "_" + randNum.Next(1, 600).ToString();
+            //    help2 = randNum.Next(10, 60);
+            //    help3 = help.ToLower() + i.ToString() + "@bedan.com";
+            //    help4 = mat[randNum.Next(0, 5)];
+            //    help5 = fac[randNum.Next(0, 3)];
+            //    help6 = org[randNum.Next(0, 3)];
+
+            //    dateString=  DateTime.Today.Day.ToString()+"_"+DateTime.Today.Month.ToString()+"_"+DateTime.Today.Year.ToString()+"_"+ DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
                 
 
 
-                items.Add(new User()
-                {
-                    Scientist = dateString,
-                    ExpID = help1,
-                    Date = help2,
-                    Email = help3,
-                    Material = help4,
-                    RadFacility = help5,
-                    Organization = help6,
-                    fullName= dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6
-                });
+            //    items.Add(new User()
+            //    {
+            //        Scientist = dateString,
+            //        ExpID = help1,
+            //        Date = help2,
+            //        Email = help3,
+            //        Material = help4,
+            //        RadFacility = help5,
+            //        Organization = help6,
+            //        fullName= dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6
+            //    });
 
-                //StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
-                //using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
-                //{
-                //    writer2.Write(help1);
-                //    writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
-                //    writer2.WriteLine("The date: " + help2.ToString());
-                //    writer2.WriteLine("The organization: " + help6);
-                //    writer2.WriteLine("The used material: " + help4);
-                //}
+            //    //StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
+            //    //using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
+            //    //{
+            //    //    writer2.Write(help1);
+            //    //    writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
+            //    //    writer2.WriteLine("The date: " + help2.ToString());
+            //    //    writer2.WriteLine("The organization: " + help6);
+            //    //    writer2.WriteLine("The used material: " + help4);
+            //    //}
 
-            }
+            //}
         }
         public static string RandomString(int length)
         {
@@ -159,7 +184,7 @@ namespace firstproject
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             User sel_user = (User)lvDataBinding.SelectedItems[0];
-            string text = File.ReadAllText(@"C: \Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\bin\Debug\" +sel_user.fullName + "_Read_Me.txt");
+            string text = File.ReadAllText(@"C: \Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\bin\Debug\" +sel_user.fullName );
            
 
                 System.Windows.Forms.MessageBox.Show(text);
