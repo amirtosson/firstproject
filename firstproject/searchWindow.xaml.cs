@@ -55,8 +55,8 @@ namespace firstproject
                 items.Add(new User()
                 {
                     Scientist = names[5],
-                    ExpID = names[5]+ names[7],
-                    Date = 11,
+                    ExpID = names[5].ToUpper()+ names[8]+ names[3] + "_" + names[4],
+                    Date = names[0]+"_"+ names[1]+"_" + names[2] ,
                     Email = names[5]+ names[5]+"@hotmail.com",
                     Material = names[8],
                     RadFacility = names[9],
@@ -169,10 +169,23 @@ namespace firstproject
 
             multiInputTextWindow _inputWindow = new multiInputTextWindow();
             _inputWindow.ShowDialog();
+            string ID = _inputWindow.new_name.ToUpper() + _inputWindow.new_mat+ _inputWindow.new_time;
+            string fullnamehrlp = _inputWindow.new_date +
+                    "_" + _inputWindow.new_time + "_" + _inputWindow.new_name + "_" +
+                    _inputWindow.new_mat + "_" + _inputWindow.new_fac + "_" + _inputWindow.new_org + "_Read_Me.txt";
             if (_inputWindow.all_ok)
             {
-                mainitems.Add(new User { ExpID =_inputWindow.new_name, Date = _inputWindow.new_age, Email = _inputWindow.new_email});
-                System.Windows.Forms.MessageBox.Show(_inputWindow.new_name + " has been added to your list", "Confirmation of adding a new user ", MessageBoxButtons.OK);
+                mainitems.Add(new User { ExpID =ID, Date = _inputWindow.new_date,
+                    Email = _inputWindow.new_email, Material= _inputWindow.new_mat,
+                    RadFacility = _inputWindow.new_fac, Organization= _inputWindow.new_org,
+                    Scientist = _inputWindow.new_name, Time=_inputWindow.new_time, fullName=fullnamehrlp });
+                using (StreamWriter writer2 = new StreamWriter(fullnamehrlp))
+                {
+                    writer2.WriteLine(ID);
+                    writer2.WriteLine(" has been conducted at " + _inputWindow.new_fac + " under supervision of " + _inputWindow.new_name + ".");
+                }
+
+                    System.Windows.Forms.MessageBox.Show(_inputWindow.new_name + " has been added to your list", "Confirmation of adding a new user ", MessageBoxButtons.OK);
 
             }
             _inputWindow.Close();
@@ -194,12 +207,14 @@ namespace firstproject
     public class User
     {
         public string ExpID { get; set; }
-        public int Date { get; set; }
+        public string Date { get; set; }
         public string Email { get; set; }
         public string RadFacility { get; set; }
         public string Organization { get; set; }
         public string Material { get; set; }
         public string Scientist { get; set; }
+        public string Time { get; set; }
+
         public string fullName { get; set; }
 
         public string item;
