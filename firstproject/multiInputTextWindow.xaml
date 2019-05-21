@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="Add data file to the cloud " Height="280" Width="420" Icon='C:\Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\Resources\plus.png'>
+        Title="Add data file to the cloud " Height="280" Width="450" Icon='C:\Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\Resources\plus.png'>
     <Window.Resources>
         <Style x:Key="style_1" TargetType="TextBlock">
             <Style.Resources>
@@ -22,7 +22,7 @@
             <Setter Property="BorderBrush" Value="Black" />
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid HorizontalAlignment="Center" Width="420">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition/>
@@ -30,40 +30,57 @@
             <RowDefinition/>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            
+
 
 
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="140"/>
-            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Row="0">
             <Image DockPanel.Dock="Left" Source="Resources\user.jpg" Margin="2,2,2,2" Width="20" Height="20"/>
-            <TextBlock   Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,2,0"/>
+            <TextBlock   Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,0"/>
         </DockPanel>
-            <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-        <TextBlock Grid.Row="1"  Text="Email: "  HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="2"  Text="user@user.com"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="Auto"  />
-        <TextBlock Grid.Row="2" Text="Age: " HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="userAgeAdd" BorderBrush="Black" BorderThickness="2" Text="123456789"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="Auto"  />
-        <TextBlock Grid.Row="0" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="0" Grid.Column="3" Name="userNameAdds"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-        <TextBlock Grid.Row="1" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="1" Grid.Column="3" Name="userNameAddsss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-        <TextBlock Grid.Row="3" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="3" Grid.Column="3" Name="userNameAddsssssssss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-        <TextBlock Grid.Row="3" Grid.Column="0"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="3" Grid.Column="1" Name="userNsafameAddsssssssss"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
-        <TextBlock Grid.Row="2" Grid.Column="2"  Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox Grid.Row="2" Grid.Column="3" Name="uasa"  BorderBrush="Black" BorderThickness="2" Text="NAME"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="auto"  />
+        <TextBox Grid.Row="0" Grid.Column="1" Name="userNameAdd"  BorderBrush="Black" BorderThickness="1" Text="Scientist"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="1">
+            <Image DockPanel.Dock="Left" Source="Resources\em.png" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock Text="Email "  HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </DockPanel>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="userEmailAdd" BorderBrush="Black" BorderThickness="1"  Text="user@user.com"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="2">
+            <Image DockPanel.Dock="Left" Source="Resources\org.png" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock Grid.Row="2" Text="Org " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </DockPanel>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="userAgeAdd" BorderBrush="Black" BorderThickness="1" Text="My organization"  HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="0" Grid.Column="2">
+            <Image DockPanel.Dock="Left" Source="Resources\mat.png" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock Grid.Row="0" Grid.Column="2"  Text="Material" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </DockPanel>
+        <TextBox Grid.Row="0" Grid.Column="3" Name="userNameAdds"  BorderBrush="Black" BorderThickness="1" Text="My material"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="1" Grid.Column="2">
+            <Image DockPanel.Dock="Left" Source="Resources\da.png" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock  Text="Date" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </DockPanel>
+        <TextBox Grid.Row="1" Grid.Column="3" Name="userDate"  BorderBrush="Black" BorderThickness="1" Text="yyyy_mm_dd"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="3" Grid.Column="0">
+            <Image DockPanel.Dock="Left" Source="Resources\rad.jpg" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock  Text="Facility" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </DockPanel>
+        <TextBox Grid.Row="3" Grid.Column="1" Name="userNsafameAddsssssssss"  BorderBrush="Black" BorderThickness="1" Text="Beam line"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
+        <DockPanel Grid.Row="2" Grid.Column="2">
+            <Image DockPanel.Dock="Left" Source="Resources\tim.png" Margin="2,2,2,2" Width="20" Height="20"/>
+            <TextBlock  Text="Time" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        </DockPanel>
+        <TextBox Grid.Row="2" Grid.Column="3" Name="userTime"  BorderBrush="Black" BorderThickness="1" Text="hh_mm"   HorizontalAlignment="Left"  VerticalAlignment="Center" Height="20" Width="140"  />
         <TextBlock Grid.Row="4" Text="Note:" VerticalAlignment="Top" Margin="16,10"/>
-        <TextBox  Grid.Row="4" Grid.ColumnSpan="4" Width="350"  Height="60"  Margin="20,20,10,5" />
+        <TextBox  Grid.Row="4" Grid.ColumnSpan="4" Width="400"  Height="60"  Margin="10,20,10,5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Extra notes about the experimental setup, the conditions, etc" />
         <Button  Grid.Row="5" Name="add_ok" Grid.Column="4" Content="OK" Margin="5" Width="80" HorizontalAlignment="Center"  Click="add_ok_Click" />
         <Button  Grid.Row="5" Name="close" Grid.Column="1" Content="Close" Margin="5" Width="80" HorizontalAlignment="Right" Click="close_Click" />
+        <Button  Grid.Row="3" Name="now" Grid.Column="4" Content="Now" Margin="5" Width="40" HorizontalAlignment="Right"  Click="now_Click"  />
 
     </Grid>
 

@@ -40,20 +40,18 @@ namespace firstproject
         }
         public void makeList(ref ObservableCollection<User> items)
         {
-            string help, help1, help3, help4, help5, help6;
-            int help2;
-            string dateString;
-            string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
-            string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
-            string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
+            //string help, help1, help3, help4, help5, help6;
+            //int help2;
+            //string dateString;
+            //string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
+            //string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
+            //string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
             DirectoryInfo di = new DirectoryInfo(@"C: \Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\bin\Debug\");
             FileInfo[] files = di.GetFiles("*.txt");
-            Console.WriteLine(files.Length);
             String pattern = @"_"; 
             for (int numOfFiles = 0; numOfFiles < files.Length; ++numOfFiles)
             {
                 string[] names = Regex.Split(files[numOfFiles].ToString(), pattern);
-                Console.WriteLine(names[10]);
                 items.Add(new User()
                 {
                     Scientist = names[5],

@@ -59,6 +59,14 @@ namespace firstproject
         {
             this.Close();
         }
+
+        private void now_Click(object sender, RoutedEventArgs e)
+        {
+           //dateString=  DateTime.Today.Day.ToString()+"_"+DateTime.Today.Month.ToString()+"_"+DateTime.Today.Year.ToString()+"_"+ DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
+
+            userDate.Text= DateTime.Today.Year.ToString() + "_" + DateTime.Today.Month.ToString() + "_" + DateTime.Today.Day.ToString();
+            userTime.Text= DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
+        }
     }
 
     public class NewUser
