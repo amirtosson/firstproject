@@ -40,74 +40,75 @@ namespace firstproject
         }
         public void makeList(ref ObservableCollection<User> items)
         {
-            //string help, help1, help3, help4, help5, help6;
-            //int help2;
-            //string dateString;
-            //string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
-            //string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
-            //string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
-            DirectoryInfo di = new DirectoryInfo(@"C: \Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\bin\Debug\");
+           string help, help1, help3, help4, help5, help6;
+            int help2;
+            string dateString;
+            string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
+            string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
+            string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
+            DirectoryInfo di = new DirectoryInfo(@"C:\Users\amitos\Desktop\Try\");
             FileInfo[] files = di.GetFiles("*.txt");
             String pattern = @"_"; 
-            for (int numOfFiles = 0; numOfFiles < files.Length; ++numOfFiles)
-            {
-                string[] names = Regex.Split(files[numOfFiles].ToString(), pattern);
-                items.Add(new User()
-                {
-                    Scientist = names[5],
-                    ExpID = names[5].ToUpper()+ names[8]+ names[3] + "_" + names[4],
-                    Date = names[0]+"_"+ names[1]+"_" + names[2] ,
-                    Email = names[5]+ names[5]+"@hotmail.com",
-                    Material = names[8],
-                    RadFacility = names[9],
-                    Organization = names[10],
-                    fullName = files[numOfFiles].ToString()
-                });
-
-
-
-            }
+     
             
             
              
-            //for (int i = 0; i < 20; ++i)
-            //{
-            //    help = RandomString(randNum.Next(4, 9));
-            //    help1 = help + "_" + randNum.Next(1, 600).ToString();
-            //    help2 = randNum.Next(10, 60);
-            //    help3 = help.ToLower() + i.ToString() + "@bedan.com";
-            //    help4 = mat[randNum.Next(0, 5)];
-            //    help5 = fac[randNum.Next(0, 3)];
-            //    help6 = org[randNum.Next(0, 3)];
+            for (int i = 0; i < 20; ++i)
+            {
+                help = RandomString(randNum.Next(4, 9));
+                help1 = help + "_" + randNum.Next(1, 6).ToString();
+                help2 = randNum.Next(10, 60);
+                help3 = help.ToLower() + i.ToString() + "@server.com";
+                help4 = mat[randNum.Next(0, 5)];
+                help5 = fac[randNum.Next(0, 3)];
+                help6 = org[randNum.Next(0, 3)];
 
-            //    dateString=  DateTime.Today.Day.ToString()+"_"+DateTime.Today.Month.ToString()+"_"+DateTime.Today.Year.ToString()+"_"+ DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
+                dateString=  DateTime.Today.Day.ToString()+"_"+DateTime.Today.Month.ToString()+"_"+DateTime.Today.Year.ToString()+"_"+ DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString();
                 
 
 
-            //    items.Add(new User()
-            //    {
-            //        Scientist = dateString,
-            //        ExpID = help1,
-            //        Date = help2,
-            //        Email = help3,
-            //        Material = help4,
-            //        RadFacility = help5,
-            //        Organization = help6,
-            //        fullName= dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6
-            //    });
+                items.Add(new User()
+                {
+                    Scientist = help,
+                    ExpID = help1,
+                   Date = "DD_MM_YYYY",
+                   Email = help3,
+                   Material = help4,
+                    RadFacility = help5,
+                    Organization = help6,
+                    fullName= dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6
+                });
 
-            //    //StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
-            //    //using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
-            //    //{
-            //    //    writer2.Write(help1);
-            //    //    writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
-            //    //    writer2.WriteLine("The date: " + help2.ToString());
-            //    //    writer2.WriteLine("The organization: " + help6);
-            //    //    writer2.WriteLine("The used material: " + help4);
-            //    //}
+                StreamWriter writer = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6);
+                using (StreamWriter writer2 = new StreamWriter(dateString + "_" + help1 + "_" + help2.ToString() + "_" + help4 + "_" + help5 + "_" + help6 + "_Read_Me.txt"))
+                {
+                    writer2.Write(help1);
+                   writer2.WriteLine(" has been conducted at " + help5 + " under supervision of " + help + ".");
+                   writer2.WriteLine("The date: " + help2.ToString());
+                    writer2.WriteLine("The organization: " + help6);
+                    writer2.WriteLine("The used material: " + help4);
+               }
 
-            //}
-        }
+            }
+			for (int numOfFiles = 0; numOfFiles < files.Length; ++numOfFiles)
+			{
+				string[] names = Regex.Split(files[numOfFiles].ToString(), pattern);
+				items.Add(new User()
+				{
+					Scientist = names[5],
+					ExpID = names[5].ToUpper() + names[8] + names[3] + "_" + names[4],
+					Date = names[0] + "_" + names[1] + "_" + names[2],
+					Email = names[5] + names[5] + "@hotmail.com",
+					Material = names[8],
+					RadFacility = names[9],
+					Organization = names[10],
+					fullName = files[numOfFiles].ToString()
+				});
+
+
+
+			}
+		}
         public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
