@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="Add data file to the cloud " Height="280" Width="450" Icon='C:\Users\Amitos\Desktop\WPF and XAML\1\firstproject\firstproject\Resources\plus.png'>
+        Title="Add data file to the cloud " Height="280" Width="450" Icon='Resources\plus.png'>
     <Window.Resources>
         <Style x:Key="style_1" TargetType="TextBlock">
             <Style.Resources>
