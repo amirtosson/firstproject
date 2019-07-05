@@ -43,7 +43,7 @@ namespace firstproject
            string help, help1, help3, help4, help5, help6;
             int help2;
             string dateString;
-            string[] mat = {"Cl", "Alsaa", "GaAs", "Cu", "Ni", "Fe" };
+            string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
             string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
             string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
             DirectoryInfo di = new DirectoryInfo(@"C:\Users\amitos\Desktop\Try\");
