@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.IO;
+using Path = System.IO.Path;
 
 namespace firstproject
 {
@@ -26,7 +28,7 @@ namespace firstproject
         string name;
         public BG()
         {
-            BG_T = @"Resources\p3.jpg";
+            BG_T = @"Resources\fkp-logo.jpg";
         }
         public string BG_T
         {
@@ -94,14 +96,15 @@ namespace firstproject
 
     public partial class MainWindow : Window
 	{
-		public MainWindow()
+        static string sourceDir = @"C:\Users\user\Desktop\Data";
+
+        public MainWindow()
 		{
 			InitializeComponent();
-			Title = "The first Program ";
 			WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            theRiver.Title_P = "out of the second panal.";
-            theRiver.MilesLong = 0;
-            _bg_.BG_T = @"Resources\p3.jpg";
+           // theRiver.Title_P = "out of the second panal.";
+           // theRiver.MilesLong = 0;
+            _bg_.BG_T = @"Resources\fkp-logo.jpg";
         }
 
 
@@ -117,7 +120,36 @@ namespace firstproject
         {
             OpenFileDialog dl = new OpenFileDialog();
             dl.ShowDialog();
-            _bg_.BG_T = @"Resources\" + dl.SafeFileName;
+            System.Windows.MessageBox.Show(dl.FileName, dl.SafeFileName);
+
+            multiInputTextWindow _inputWindow = new multiInputTextWindow();
+            _inputWindow.ShowDialog();
+            string ID="j";
+            if (_inputWindow.all_ok)
+            {
+                ID = _inputWindow.new_date +
+                        "_" + _inputWindow.new_time + "_" + _inputWindow.new_name + "_" +
+                        _inputWindow.new_mat + "_" + _inputWindow.new_fac + "_" + _inputWindow.new_org + ".txt";
+                string fullnamehrlp =  _inputWindow.new_date +
+                        "_" + _inputWindow.new_time + "_" + _inputWindow.new_name + "_" +
+                        _inputWindow.new_mat + "_" + _inputWindow.new_fac + "_" + _inputWindow.new_org + "_Read_Me.txt";
+                using (StreamWriter writer2 = new StreamWriter(Path.Combine(sourceDir, fullnamehrlp)))
+                {
+                    writer2.WriteLine(ID);
+                    writer2.WriteLine(" has been conducted at " + _inputWindow.new_fac + " under supervision of " + _inputWindow.new_name + ".");
+                }
+
+                System.Windows.Forms.MessageBox.Show(_inputWindow.new_name + " has been added to your list", "Confirmation of adding a new user ", MessageBoxButtons.OK);
+
+            }
+            _inputWindow.Close();
+
+
+
+            File.Copy(dl.FileName, Path.Combine(sourceDir, ID), true);
+
+
+            // _bg_.BG_T = @"Resources\" + dl.SafeFileName;
 
 
         }
@@ -136,16 +168,16 @@ namespace firstproject
 
         private void bdr_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            theRiver.Title_P = "in the second panel and X-pixel= "+ e.GetPosition(this).X.ToString() + " Y-pixel= "+ e.GetPosition(this).Y.ToString() +".";
+           // theRiver.Title_P = "in the second panel and X-pixel= "+ e.GetPosition(this).X.ToString() + " Y-pixel= "+ e.GetPosition(this).Y.ToString() +".";
 
         }
 
         private void StackPanel_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            theRiver.Title_P = "out of the second panal";
+           // theRiver.Title_P = "out of the second panal";
             toc = DateTime.Now.Second;
             second_conter += (toc - tic);
-            theRiver.MilesLong = second_conter;
+           /// theRiver.MilesLong = second_conter;
         }
 
         private void StackPanel_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)

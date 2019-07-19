@@ -46,7 +46,7 @@ namespace firstproject
             string[] mat = {"Cl", "Al", "GaAs", "Cu", "Ni", "Fe" };
             string[] fac = { "ESRF", "EDDI", "Petra", "HomeLab"};
             string[] org = { "Siegen", "Hamburg", "Dortmund", "Frankfurt" };
-            DirectoryInfo di = new DirectoryInfo(@"C:\Users\amitos\Desktop\Try\");
+            DirectoryInfo di = new DirectoryInfo(@"C:\Users\user\Desktop\Data\");
             FileInfo[] files = di.GetFiles("*.txt");
             String pattern = @"_"; 
      

@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         xmlns:local="clr-namespace:firstproject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="584" Width="525" MouseMove="Window_MouseMove" Icon='\Resources\p2.jpeg' >
+        Title="Cloud Manger" Height="584" Width="525" Icon='Resources\fkp-logo.jpg' >
     <!--	 ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" MouseMove="Window_MouseMove" >  -->
 
     <Window.Resources>
@@ -60,52 +60,18 @@
         </ContentControl>
 
         <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,307">
-            <Button x:Name="button_2"  Height="60" Width="300" Click="button_2_Click" Style="{DynamicResource RoundedButtonStyle}">
+            <Button x:Name="button_2"  Height="60" Click="button_2_Click" Style="{DynamicResource RoundedButtonStyle}" Margin="39,50,39,0">
                 <DockPanel>
-                    <Image  Source='Resources\all.ico' Width="40" Height="40" DockPanel.Dock="Left" />
-                    <TextBlock DockPanel.Dock="Top" Margin="2,-3,1,1" HorizontalAlignment="Center" FontSize="40">
-                        Patientenliste
-                    </TextBlock>
+                    <TextBlock DockPanel.Dock="Top" Margin="2,-3,1,1" HorizontalAlignment="Center" FontSize="30"><Run Text="Choose file/s from the cloud"/></TextBlock>
                 </DockPanel>
             </Button>
-            <Button x:Name="button" Content="Change BG" Height="60" Width="300" Click="button_Click"  />
-        </StackPanel>
-
-        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" MouseMove="bdr_MouseMove" MouseLeave="StackPanel_MouseLeave" MouseEnter="StackPanel_MouseEnter" Margin="10,0,10,236" Height="66" >
-            <StackPanel.Resources>
-                <DataTemplate DataType="{x:Type local:River}">
-                    <Border x:Name="bdr" BorderBrush="Blue" BorderThickness="3" CornerRadius="12"  >
-                        <Grid Margin="4">
-                            <TextBlock x:Name="txt">
-                            <Run Text="You are"/>
-                            <TextBlock Text="{Binding Title_P}" Style="{StaticResource style_1}"/>
-                            <LineBreak/>
-                            <Run Text=" You have spent here " />
-                            <TextBlock Text="{Binding MilesLong}" />
-                            <Run Text=" seconds." />
-                            </TextBlock>
-                        </Grid>
-                    </Border>
-
-                    <DataTemplate.Triggers>
-                        <Trigger SourceName="bdr" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="bdr" Property="Background" Value="LightGray"/>
-                            <Setter TargetName="txt" Property="Foreground" Value="Red"/>
-                        </Trigger>
-                    </DataTemplate.Triggers>
-                </DataTemplate>
-
-            </StackPanel.Resources>
-
-            <ContentControl>
-                <local:River x:Name="theRiver"/>
-            </ContentControl>
+            <Button x:Name="button" Content="Add new file " FontSize="30" Height="60" Width="300" Click="button_Click"  Margin="109,20,107,0"  Style="{DynamicResource RoundedButtonStyle}" />
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom">
             <TextBlock Text="Change Transperancy!" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" Margin="0,2,210,4" Background="White"/>
-            <Slider x:Name="BGSlider" VerticalAlignment="Bottom" Minimum="0" Maximum="1.0" Value="0" TickFrequency="0.01" Width="220" Margin="138,0,139,0" />
+            <Slider x:Name="BGSlider" VerticalAlignment="Bottom" Minimum="0" Maximum="1.0" Value="1" TickFrequency="0.01" Width="220" Margin="138,0,139,0" />
             <TextBlock Text="{Binding ElementName=BGSlider, Path=Value}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-            
+
 
         </StackPanel>
     </Grid>
